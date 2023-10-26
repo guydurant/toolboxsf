@@ -1,0 +1,22 @@
+Bootstrap: docker
+From: fedora:38
+
+%post
+	dnf update -y && dnf install -y git-all wget
+	git clone https://github.com/guydurant/rfscore.git
+	wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+	bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda
+	rm -f Miniconda3-latest-Linux-x86_64.sh
+	export PATH="/opt/conda/bin:$PATH"
+	echo -e '#!/bin/bash\npython /rfscore/train_wrapper.py "$@"' > /bin/toolboxsf
+	cd rfscore
+	mkdir data
+	conda env create -f environment.yml
+	conda clean --all -y
+	
+
+%environment
+	. /opt/conda/etc/profile.d/conda.sh
+	conda activate rfscore
+	cd /rfscore
+	

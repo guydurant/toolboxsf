@@ -1,0 +1,24 @@
+[submodule "model_repos/Pafnucy"]
+	path = model_repos/Pafnucy
+	url = https://github.com/guydurant/Pafnucy.git
+[submodule "model_repos/rfscore"]
+	path = model_repos/rfscore
+	url = https://github.com/guydurant/rfscore.git
+[submodule "model_repos/PointVS"]
+	path = model_repos/PointVS
+	url = https://github.com/guydurant/PointVS.git
+[submodule "model_repos/SIGN"]
+	path = model_repos/SIGN
+	url = https://github.com/guydurant/SIGN.git
+[submodule "model_repos/OnionNet-2"]
+	path = model_repos/OnionNet-2
+	url = https://github.com/guydurant/OnionNet-2.git
+[submodule "model_repos/ligandbias"]
+	path = model_repos/ligandbias
+	url = https://github.com/guydurant/ligandbias.git
+[submodule "model_repos/proteinbias"]
+	path = model_repos/proteinbias
+	url = https://github.com/guydurant/proteinbias.git
+[submodule "model_repos/bothbias"]
+	path = model_repos/bothbias
+	url = https://github.com/guydurant/bothbias.git

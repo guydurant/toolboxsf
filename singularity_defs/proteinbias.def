@@ -1,0 +1,21 @@
+Bootstrap: docker
+From: fedora:38
+
+%post
+	dnf update -y && dnf install -y git-all wget
+	git clone https://github.com/guydurant/proteinbias.git
+	wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+	bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda
+	rm -f Miniconda3-latest-Linux-x86_64.sh
+	export PATH="/opt/conda/bin:$PATH"
+	echo -e '#!/bin/bash\npython /proteinbias/train_wrapper.py "$@"' > /bin/toolboxsf
+	cd proteinbias
+	conda env create -f environment.yml
+	conda clean --all -y
+
+%environment
+	export PATH="/opt/conda/bin:$PATH"
+	. /opt/conda/etc/profile.d/conda.sh
+	conda activate proteinbias
+	cd /proteinbias
+	

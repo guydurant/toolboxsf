@@ -1,0 +1,24 @@
+Bootstrap: docker
+From: fedora:34
+
+%post
+    dnf update -y && dnf install -y git-all wget 
+	dnf -y install libXext libSM libXrender
+	git clone https://github.com/guydurant/Pafnucy.git
+	wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+	bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda
+	rm -f Miniconda3-latest-Linux-x86_64.sh
+	export PATH="/opt/conda/bin:$PATH"
+	echo -e '#!/bin/bash\npython /Pafnucy/train_wrapper.py "$@"' > /bin/toolboxsf
+	cd Pafnucy
+	mkdir data
+    conda env create -f environment_gpu.yml
+	conda clean --all -y
+
+%environment
+	export LD_LIBRARY_PATH="/usr/lib64:/usr/local/lib64:/usr/local/lib:/usr/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH}"
+	export PATH="/opt/conda/bin:$PATH"
+	. /opt/conda/etc/profile.d/conda.sh
+	conda activate pafnucy_env
+	cd /Pafnucy
+
