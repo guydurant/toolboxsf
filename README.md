@@ -10,7 +10,7 @@ This repository contains the raw code and built singularity containers for the s
 
 Singularity containers for each scoring function and baseline models in the paper, the data for benchmarks for any docking or modified poses and training scripts can be found at the following link:
 
-- [link](https://zenodo.org/records/8410136)
+- [Zenodo](https://zenodo.org/records/8410136)
 
 The singularity containers can be built from scratch using .def files provided in the singularity_defs folder with the following commands:
 
