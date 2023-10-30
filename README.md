@@ -40,7 +40,7 @@ python scripts/pdbbind_processing.py --pdbbind_dir <RAW_PDBBIND_DATA_DIR> --outp
 
 ## Usage
 
-It is recommended to use the singularity containers to run the scoring functions, they should be downloaded into their own separate folders.
+It is recommended to use the singularity containers to run the scoring functions, they should be downloaded into their own separate folders. Running the training and/or validation will create a data folder, within which will be the computed features, saved models and results.
 
 N.B. PointVS requires the pre-trained weights (48_compact\_\_0 at ) for pose classification to be in the same folder.
 
