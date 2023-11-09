@@ -1,6 +1,6 @@
 """
-Script for processing PDBBind files for Robustly interrogating machine learning-based
-scoring functions: what are they learning?
+Script for processing PDBBind files for Robustly interrogating machine
+learning-based scoring functions: what are they learning?
 """
 
 import os
@@ -14,7 +14,11 @@ def process_protein_file(protein_file, pdb_code, output_dir):
         pattern1 = re.compile(str("^ATOM"), re.DOTALL)
         if not os.path.exists(f"{output_dir}/{pdb_code}"):
             os.makedirs(f"{output_dir}/{pdb_code}")
-        with open(f"{output_dir}/{pdb_code}/{pdb_code}_protein_cleaned.pdb", "w") as g:
+        with open(
+            f"{output_dir}/{pdb_code}/{pdb_code}\
+            _protein_cleaned.pdb",
+            "w",
+        ) as g:
             for line in f.readlines():
                 if re.match(pattern1, line):
                     g.write(line)
@@ -34,12 +38,14 @@ if __name__ == "__main__":
     parser.add_argument(
         "--pdbbind_dir",
         type=str,
-        help="Path to downloaded PDBBind directory, e.g. /home/user/pdbbind_2020_general",
+        help="Path to downloaded PDBBind directory,\
+            e.g./home/user/pdbbind_2020_general",
     )
     parser.add_argument(
         "--output_dir",
         type=str,
-        help="Path to output procssed PDBBind data e.g. /home/user/pdbbind_2020_general_processed",
+        help="Path to output procssed PDBBind data\
+            e.g. /home/user/pdbbind_2020_general_processed",
     )
     args = parser.parse_args()
     with open("toolboxsf_pdb_codes.txt", "r") as f:
@@ -47,8 +53,10 @@ if __name__ == "__main__":
     pdbs = [x.strip() for x in pdbs]
     for pdb_code in tqdm(pdbs):
         try:
-            protein_file = f"{args.pdbbind_dir}/{pdb_code}/{pdb_code}_protein.pdb"
-            ligand_file = f"{args.pdbbind_dir}/{pdb_code}/{pdb_code}_ligand.mol2"
+            protein_file = f"{args.pdbbind_dir}/{pdb_code}/{pdb_code}\
+                _protein.pdb"
+            ligand_file = f"{args.pdbbind_dir}/{pdb_code}/{pdb_code}\
+                _ligand.mol2"
             process_protein_file(protein_file, pdb_code, args.output_dir)
             process_ligand_file(ligand_file, pdb_code, args.output_dir)
         except Exception as e:
