@@ -58,6 +58,14 @@ For validation:
 singularity exec --nv --home $(dirname $PWD) <SINGULARITY_CONTAINER_NAME>.sif bash toolboxsf --predict --val_csv_file ../toolboxsf_benchmarks/csv_files/casf_2016_test.csv --val_data_dir ../pdbbind_2020_general --model_name <TRAINED_MODEL_NAME>
 ```
 
+Note OnionNet-2, SIGN, Pafnucy and PointVS require GPUs to run. All other models/containers can be run on CPUs.
+
+Result CSV files produced can be (found in data/results) can be analysed using the following command:
+
+```bash
+python scripts/bootstrap_pearsonsr.py --filename <RESULT_CSV_FILE>
+```
+
 ## Creating training/test splits
 
 The training/test splits used in the paper can be found in the training_csvs folder. To create new training/test splits, create csv files with the following columns:
