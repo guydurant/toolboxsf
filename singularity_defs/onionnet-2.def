@@ -17,5 +17,5 @@ From: fedora:38
 %environment
         export PATH="/opt/conda/bin:$PATH"
         . /opt/conda/etc/profile.d/conda.sh
-        conda activate OnionNet-GPU-2
+        conda activate OnionNet-2_singularity
         cd /OnionNet-2                                     
