@@ -49,7 +49,7 @@ The following commands can be used to run the scoring functions:
 For training:
 
 ```bash
-singularity exec --nv--home $(dirname $PWD) <SINGULARITY_CONTAINER_NAME>.sif bash toolboxsf --train --csv_file ../toolboxsf_training_csvs/casf_2016_train.csv --data_dir ../pdbbind_2020_general --model_name <MODEL_NAME>
+singularity exec --nv --home $(dirname $PWD) <SINGULARITY_CONTAINER_NAME>.sif bash toolboxsf --train --csv_file ../toolboxsf_training_csvs/casf_2016_train.csv --data_dir ../pdbbind_2020_general --model_name <MODEL_NAME>
 ```
 
 For validation:
