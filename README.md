@@ -68,7 +68,7 @@ python scripts/bootstrap_pearsonsr.py --filename <RESULT_CSV_FILE>
 
 ## Creating training/test splits
 
-The training/test splits used in the paper can be found in the training_csvs folder. To create new training/test splits, create csv files with the following columns:
+The training/test splits used in the paper can be found in the toolboxsf_training_csvs folder and toolboxsf_benchmarks/csv_files folder respectively (zipped in the Zenodo). To create new training/test splits, create csv files with the following columns:
 
 - key: Unique key for each protein-ligand pair (typically a PDB code)
 - pk: Binding affinity as a pK value
